@@ -49,10 +49,10 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#fef7f1] via-[#faf9f6] to-[#e1eff0] p-4">
-      <div className="bg-white rounded-kasa-lg shadow-xl p-8 w-full max-w-md">
+      <div className="bg-white rounded-brand-lg shadow-xl p-8 w-full max-w-md">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-kasa-black-500 mb-2">
-            Welcome to Kasa
+          <h1 className="text-3xl font-bold text-brand-dark mb-2">
+            Welcome
           </h1>
           <p className="text-gray-700">
             Sign in to access your reputation dashboard
@@ -61,7 +61,7 @@ export default function LoginPage() {
 
         {/* Error Display */}
         {error && (
-          <div className="mb-6 p-4 bg-red-50 border border-kasa-error rounded-kasa-sm">
+          <div className="mb-6 p-4 bg-red-50 border border-brand-error rounded-brand-sm">
             <div className="flex">
               <div className="flex-shrink-0">
                 <svg
@@ -132,8 +132,8 @@ export default function LoginPage() {
             },
             className: {
               container: "w-full",
-              button: "w-full px-4 py-2 rounded-kasa font-semibold min-h-kasa-button-md",
-              input: "w-full px-4 py-2 rounded-kasa-sm border border-kasa-neutral-medium h-kasa-button-md",
+              button: "w-full px-4 py-2 rounded-brand font-semibold min-h-brand-button-md",
+              input: "w-full px-4 py-2 rounded-brand-sm border border-brand-border-medium h-brand-button-md",
               label: "!text-gray-700",
             },
           }}

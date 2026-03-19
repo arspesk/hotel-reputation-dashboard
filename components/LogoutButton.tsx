@@ -26,7 +26,7 @@ export default function LogoutButton() {
     <button
       onClick={handleLogout}
       disabled={isLoading}
-      className="inline-flex items-center px-4 py-2 border border-kasa-neutral-medium shadow-sm text-sm font-medium rounded-kasa text-kasa-black-500 bg-white hover:bg-kasa-neutral-warm focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] disabled:opacity-50 disabled:cursor-not-allowed min-h-kasa-button-md"
+      className="inline-flex items-center px-4 py-2 border border-brand-border-medium shadow-sm text-sm font-medium rounded-brand text-brand-dark bg-white hover:bg-brand-bg focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] disabled:opacity-50 disabled:cursor-not-allowed min-h-brand-button-md"
     >
       {isLoading ? (
         <>

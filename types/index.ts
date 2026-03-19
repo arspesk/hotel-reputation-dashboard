@@ -1,6 +1,6 @@
 /**
  * TypeScript Type Definitions
- * Shared types for the Kasa Reputation Dashboard
+ * Shared types for the Hotel Reputation Dashboard
  */
 
 // Database types matching Supabase schema

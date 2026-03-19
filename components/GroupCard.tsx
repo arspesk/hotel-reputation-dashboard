@@ -23,21 +23,21 @@ export default function GroupCard({
   const [isRefreshing, setIsRefreshing] = useState(false);
 
   /**
-   * Color coding for scores (Kasa brand colors):
-   * - Kasa Success (8.0+): Excellent
-   * - Kasa Warning (6.0-7.9): Good
-   * - Kasa Error (<6.0): Needs improvement
+   * Color coding for scores (Brand colors):
+   * - Brand Success (8.0+): Excellent
+   * - Brand Warning (6.0-7.9): Good
+   * - Brand Error (<6.0): Needs improvement
    */
   const getScoreBadgeClasses = (score: number): string => {
-    if (score >= 8.0) return "bg-kasa-success text-white ring-4 ring-green-500/20";
-    if (score >= 6.0) return "bg-kasa-warning text-white ring-4 ring-yellow-500/20";
-    return "bg-kasa-error text-white ring-4 ring-red-500/20";
+    if (score >= 8.0) return "bg-brand-success text-white ring-4 ring-green-500/20";
+    if (score >= 6.0) return "bg-brand-warning text-white ring-4 ring-yellow-500/20";
+    return "bg-brand-error text-white ring-4 ring-red-500/20";
   };
 
   const getScoreTextColor = (score: number): string => {
-    if (score >= 8.0) return "text-kasa-success";
-    if (score >= 6.0) return "text-kasa-warning";
-    return "text-kasa-error";
+    if (score >= 8.0) return "text-brand-success";
+    if (score >= 6.0) return "text-brand-warning";
+    return "text-brand-error";
   };
 
   const handleDelete = (e: React.MouseEvent) => {
@@ -157,12 +157,12 @@ export default function GroupCard({
   const hasReviewData = group.aggregate_score !== undefined;
 
   return (
-    <div className="bg-white rounded-kasa-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-kasa-neutral-light overflow-visible flex flex-col h-full relative">
+    <div className="bg-white rounded-brand-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-brand-border overflow-visible flex flex-col h-full relative">
       {/* Header */}
       <div className="p-6 pb-4 min-h-[120px]">
         <div className="flex items-start justify-between mb-4">
           <div className="flex-1 min-w-0">
-            <h3 className="text-xl font-bold text-kasa-black-500 mb-1 break-words">
+            <h3 className="text-xl font-bold text-brand-dark mb-1 break-words">
               {group.name}
             </h3>
             <p className="text-sm text-gray-700">
@@ -176,7 +176,7 @@ export default function GroupCard({
                 e.stopPropagation();
                 onEdit(group);
               }}
-              className="text-kasa-blue-300 hover:text-kasa-blue-200 hover:bg-kasa-neutral-light rounded-kasa-sm p-2 transition-colors"
+              className="text-brand-primary hover:text-brand-primary-light hover:bg-brand-border rounded-brand-sm p-2 transition-colors"
               title="Edit group"
             >
               <svg
@@ -198,7 +198,7 @@ export default function GroupCard({
             <button
               onClick={handleRefresh}
               disabled={isRefreshing || !group.hotels || group.hotels.length === 0}
-              className="text-kasa-blue-300 hover:text-kasa-blue-200 hover:bg-kasa-neutral-light rounded-kasa-sm p-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="text-brand-primary hover:text-brand-primary-light hover:bg-brand-border rounded-brand-sm p-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               title="Refresh all hotels"
             >
               <ArrowPathIcon className={`w-5 h-5 ${isRefreshing ? 'animate-spin' : ''}`} />
@@ -210,7 +210,7 @@ export default function GroupCard({
                 e.stopPropagation();
                 handleDelete(e);
               }}
-              className="text-kasa-error hover:text-red-700 hover:bg-red-50 rounded-kasa-sm p-2 transition-colors"
+              className="text-brand-error hover:text-red-700 hover:bg-red-50 rounded-brand-sm p-2 transition-colors"
               title="Delete group"
             >
               <svg
@@ -245,7 +245,7 @@ export default function GroupCard({
           </>
         ) : (
           <>
-            <div className="inline-flex items-center justify-center w-28 h-28 rounded-full bg-kasa-neutral-light text-gray-700 font-bold ring-4 ring-gray-200/20">
+            <div className="inline-flex items-center justify-center w-28 h-28 rounded-full bg-brand-border text-gray-700 font-bold ring-4 ring-gray-200/20">
               <div className="text-center">
                 <div className="text-4xl leading-none">—</div>
                 <div className="text-lg opacity-90">/10</div>
@@ -263,7 +263,7 @@ export default function GroupCard({
             {topPerformer && (
               <div className="flex items-center gap-2">
                 <span className="text-gray-700">Top:</span>
-                <span className="font-medium text-kasa-black-500">{topPerformer.hotel.name}</span>
+                <span className="font-medium text-brand-dark">{topPerformer.hotel.name}</span>
                 <span className={`font-semibold ${getScoreTextColor(topPerformer.score)}`}>
                   ({topPerformer.score.toFixed(1)})
                 </span>
@@ -272,7 +272,7 @@ export default function GroupCard({
             {lowPerformer && topPerformer?.hotel.id !== lowPerformer.hotel.id && (
               <div className="flex items-center gap-2">
                 <span className="text-gray-700">Low:</span>
-                <span className="font-medium text-kasa-black-500">{lowPerformer.hotel.name}</span>
+                <span className="font-medium text-brand-dark">{lowPerformer.hotel.name}</span>
                 <span className={`font-semibold ${getScoreTextColor(lowPerformer.score)}`}>
                   ({lowPerformer.score.toFixed(1)})
                 </span>
@@ -289,7 +289,7 @@ export default function GroupCard({
       <div className="px-6 min-h-[48px] flex items-center">
         <Link
           href={`/dashboard/groups/${group.id}`}
-          className="block w-full px-4 py-2 text-sm text-center text-kasa-blue-300 hover:bg-kasa-neutral-light rounded-kasa border border-kasa-blue-300 transition-colors font-medium min-h-kasa-button-md"
+          className="block w-full px-4 py-2 text-sm text-center text-brand-primary hover:bg-brand-border rounded-brand border border-brand-primary transition-colors font-medium min-h-brand-button-md"
         >
           View Details
         </Link>
@@ -297,18 +297,18 @@ export default function GroupCard({
 
       {/* Expanded Member Hotels */}
       {isExpanded && group.hotels && group.hotels.length > 0 && (
-        <div className="bg-kasa-neutral-warm px-6 py-4 border-t border-kasa-neutral-light absolute left-0 right-0 shadow-lg z-10 rounded-kasa-lg" style={{ top: '100%' }}>
-          <h4 className="text-sm font-semibold text-kasa-black-500 mb-3">Member Hotels</h4>
+        <div className="bg-brand-bg px-6 py-4 border-t border-brand-border absolute left-0 right-0 shadow-lg z-10 rounded-brand-lg" style={{ top: '100%' }}>
+          <h4 className="text-sm font-semibold text-brand-dark mb-3">Member Hotels</h4>
           <div className="space-y-2">
             {group.hotels.map((hotel) => (
               <Link
                 key={hotel.id}
                 href={`/dashboard/hotels/${hotel.id}`}
-                className="block bg-white rounded-kasa-sm p-3 hover:bg-kasa-neutral-light transition-colors border border-kasa-neutral-light"
+                className="block bg-white rounded-brand-sm p-3 hover:bg-brand-border transition-colors border border-brand-border"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-kasa-black-500 truncate">
+                    <p className="text-sm font-medium text-brand-dark truncate">
                       {hotel.name}
                     </p>
                     <div className="flex items-center gap-2 mt-1">
@@ -337,11 +337,11 @@ export default function GroupCard({
       )}
 
       {/* Actions Footer - View Hotels */}
-      <div className="px-6 py-4 bg-kasa-neutral-warm border-t border-kasa-neutral-light mt-auto rounded-b-kasa-lg">
+      <div className="px-6 py-4 bg-brand-bg border-t border-brand-border mt-auto rounded-b-brand-lg">
         {group.hotels && group.hotels.length > 0 && (
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="w-full flex items-center justify-center gap-2 py-2 px-4 text-sm font-medium text-kasa-blue-300 hover:bg-kasa-neutral-light rounded-kasa transition-colors"
+            className="w-full flex items-center justify-center gap-2 py-2 px-4 text-sm font-medium text-brand-primary hover:bg-brand-border rounded-brand transition-colors"
           >
             <svg
               className={`w-4 h-4 transform transition-transform ${isExpanded ? 'rotate-180' : ''}`}

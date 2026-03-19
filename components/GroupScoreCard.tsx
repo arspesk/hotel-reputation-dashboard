@@ -59,20 +59,20 @@ export default function GroupScoreCard({ group_id }: GroupScoreCardProps) {
 
   /**
    * Color coding for scores (consistent with HotelScoreCard):
-   * - Kasa Success (8.0+): Excellent
-   * - Kasa Warning (6.0-7.9): Good
-   * - Kasa Error (<6.0): Needs improvement
+   * - Brand Success (8.0+): Excellent
+   * - Brand Warning (6.0-7.9): Good
+   * - Brand Error (<6.0): Needs improvement
    */
   const getScoreColor = (score: number): string => {
-    if (score >= 8.0) return "text-kasa-success bg-green-50 border-green-200";
-    if (score >= 6.0) return "text-kasa-warning bg-orange-50 border-orange-200";
-    return "text-kasa-error bg-red-50 border-red-200";
+    if (score >= 8.0) return "text-brand-success bg-green-50 border-green-200";
+    if (score >= 6.0) return "text-brand-warning bg-orange-50 border-orange-200";
+    return "text-brand-error bg-red-50 border-red-200";
   };
 
   const getScoreTextColor = (score: number): string => {
-    if (score >= 8.0) return "text-kasa-success";
-    if (score >= 6.0) return "text-kasa-warning";
-    return "text-kasa-error";
+    if (score >= 8.0) return "text-brand-success";
+    if (score >= 6.0) return "text-brand-warning";
+    return "text-brand-error";
   };
 
   const isValidPlatformData = (data?: PlatformScore): boolean => {
@@ -398,7 +398,7 @@ export default function GroupScoreCard({ group_id }: GroupScoreCardProps) {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center py-12">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-kasa-blue-300"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-primary"></div>
       </div>
     );
   }
@@ -406,7 +406,7 @@ export default function GroupScoreCard({ group_id }: GroupScoreCardProps) {
   // Empty State - No Hotels
   if (!isLoading && hotelScores.length === 0) {
     return (
-      <div className="bg-white rounded-kasa border border-kasa-neutral-light p-12 text-center">
+      <div className="bg-white rounded-brand border border-brand-border p-12 text-center">
         <svg
           className="w-16 h-16 mx-auto mb-4 text-gray-300"
           fill="none"
@@ -420,7 +420,7 @@ export default function GroupScoreCard({ group_id }: GroupScoreCardProps) {
             d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
           />
         </svg>
-        <h3 className="text-lg font-medium text-kasa-black-500 mb-2">
+        <h3 className="text-lg font-medium text-brand-dark mb-2">
           No hotels in this group
         </h3>
         <p className="text-gray-700">
@@ -434,19 +434,19 @@ export default function GroupScoreCard({ group_id }: GroupScoreCardProps) {
     <div>
       {/* Warning for no review data */}
       {!isLoading && hotelScores.length > 0 && !hasAnyReviewData && (
-        <div className="bg-orange-50 border border-orange-200 rounded-kasa-sm p-4 mb-4">
-          <p className="text-sm text-kasa-warning">
+        <div className="bg-orange-50 border border-orange-200 rounded-brand-sm p-4 mb-4">
+          <p className="text-sm text-brand-warning">
             <strong>No review data yet.</strong> Click &quot;Refresh Reviews&quot; on individual hotels to fetch their ratings.
           </p>
         </div>
       )}
 
       {/* Table */}
-      <div className="bg-white rounded-kasa shadow-md border border-kasa-neutral-light overflow-hidden">
+      <div className="bg-white rounded-brand shadow-md border border-brand-border overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-kasa-neutral-light">
+          <table className="min-w-full divide-y divide-brand-border">
             {/* Table Header */}
-            <thead className="bg-kasa-black-500">
+            <thead className="bg-brand-dark">
               <tr>
                 <SortableHeader column="hotel_name" label="Hotel Name" className="text-left" />
                 <SortableHeader column="city" label="City" className="text-left" />
@@ -459,10 +459,10 @@ export default function GroupScoreCard({ group_id }: GroupScoreCardProps) {
               </tr>
             </thead>
 
-            <tbody className="bg-white divide-y divide-kasa-neutral-light">
+            <tbody className="bg-white divide-y divide-brand-border">
               {/* Aggregate Row */}
               <tr className="bg-blue-50 font-bold">
-                <td className="px-6 py-4 text-sm text-kasa-black-500">
+                <td className="px-6 py-4 text-sm text-brand-dark">
                   GROUP AGGREGATE
                 </td>
                 <td className="px-6 py-4 text-sm text-gray-700">
@@ -473,15 +473,15 @@ export default function GroupScoreCard({ group_id }: GroupScoreCardProps) {
                 <PlatformCell data={platformAggregates.booking} />
                 <PlatformCell data={platformAggregates.expedia} />
                 <WeightedScoreCell score={groupAggregate} />
-                <td className="px-6 py-4 text-center text-sm text-kasa-black-500">
+                <td className="px-6 py-4 text-center text-sm text-brand-dark">
                   {totalReviews.toLocaleString()}
                 </td>
               </tr>
 
               {/* Hotel Rows */}
               {sortedHotelScores.map(hotelScore => (
-                <tr key={hotelScore.hotel.id} className="hover:bg-kasa-neutral-warm transition-colors">
-                  <td className="px-6 py-4 text-sm font-medium text-kasa-black-500">
+                <tr key={hotelScore.hotel.id} className="hover:bg-brand-bg transition-colors">
+                  <td className="px-6 py-4 text-sm font-medium text-brand-dark">
                     {hotelScore.hotel.name}
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-700">
@@ -492,7 +492,7 @@ export default function GroupScoreCard({ group_id }: GroupScoreCardProps) {
                   <PlatformCell data={hotelScore.booking} />
                   <PlatformCell data={hotelScore.expedia} />
                   <WeightedScoreCell score={hotelScore.weighted_score} />
-                  <td className="px-6 py-4 text-center text-sm text-kasa-black-500">
+                  <td className="px-6 py-4 text-center text-sm text-brand-dark">
                     {hotelScore.total_reviews.toLocaleString()}
                   </td>
                 </tr>

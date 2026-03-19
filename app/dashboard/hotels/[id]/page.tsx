@@ -388,12 +388,12 @@ export default function HotelDetailPage({
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-kasa-neutral-warm">
-        <header className="bg-white shadow-sm border-b border-kasa-neutral-light">
+      <div className="min-h-screen bg-brand-bg">
+        <header className="bg-white shadow-sm border-b border-brand-border">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <Link
               href="/dashboard"
-              className="inline-flex items-center text-kasa-blue-300 hover:bg-[#144a70] font-medium transition-colors"
+              className="inline-flex items-center text-brand-primary hover:bg-[#144a70] font-medium transition-colors"
             >
               <svg
                 className="w-5 h-5 mr-2"
@@ -414,7 +414,7 @@ export default function HotelDetailPage({
         </header>
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex items-center justify-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-kasa-blue-300"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-primary"></div>
           </div>
         </main>
       </div>
@@ -426,13 +426,13 @@ export default function HotelDetailPage({
   }
 
   return (
-    <div className="min-h-screen bg-kasa-neutral-warm">
+    <div className="min-h-screen bg-brand-bg">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b border-kasa-neutral-light sticky top-0 z-10">
+      <header className="bg-white shadow-sm border-b border-brand-border sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <Link
             href="/dashboard"
-            className="inline-flex items-center text-kasa-blue-300 hover:text-[#144a70] font-medium transition-colors"
+            className="inline-flex items-center text-brand-primary hover:text-[#144a70] font-medium transition-colors"
           >
             <svg
               className="w-5 h-5 mr-2"
@@ -455,7 +455,7 @@ export default function HotelDetailPage({
             <button
               onClick={handleRefresh}
               disabled={isRefreshing}
-              className="inline-flex items-center px-4 py-2 min-h-kasa-button-md bg-kasa-blue-300 text-white rounded-kasa hover:bg-[#144a70] transition-colors font-medium gap-2 focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] disabled:opacity-50 disabled:cursor-not-allowed"
+              className="inline-flex items-center px-4 py-2 min-h-brand-button-md bg-brand-primary text-white rounded-brand hover:bg-[#144a70] transition-colors font-medium gap-2 focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] disabled:opacity-50 disabled:cursor-not-allowed"
               title="Refresh reviews"
             >
               <ArrowPathIcon className={`w-5 h-5 ${isRefreshing ? 'animate-spin' : ''}`} />
@@ -466,7 +466,7 @@ export default function HotelDetailPage({
             <div className="relative export-dropdown">
               <button
                 onClick={() => setShowExportMenu(!showExportMenu)}
-                className="inline-flex items-center px-4 py-2 min-h-kasa-button-md border border-kasa-blue-300 text-kasa-blue-300 rounded-kasa hover:bg-kasa-neutral-light transition-colors font-medium gap-2 focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)]"
+                className="inline-flex items-center px-4 py-2 min-h-brand-button-md border border-brand-primary text-brand-primary rounded-brand hover:bg-brand-border transition-colors font-medium gap-2 focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)]"
               >
                 <svg
                   className="w-5 h-5"
@@ -498,16 +498,16 @@ export default function HotelDetailPage({
               </button>
 
               {showExportMenu && (
-                <div className="absolute right-0 mt-2 w-56 bg-white border border-kasa-neutral-light rounded-kasa shadow-lg z-10">
+                <div className="absolute right-0 mt-2 w-56 bg-white border border-brand-border rounded-brand shadow-lg z-10">
                   <button
                     onClick={handleExportCurrent}
-                    className="w-full px-4 py-2 text-left hover:bg-kasa-neutral-warm text-sm text-gray-700 rounded-t-kasa-sm"
+                    className="w-full px-4 py-2 text-left hover:bg-brand-bg text-sm text-gray-700 rounded-t-brand-sm"
                   >
                     Export Current Data
                   </button>
                   <button
                     onClick={handleExportHistory}
-                    className="w-full px-4 py-2 text-left hover:bg-kasa-neutral-warm text-sm text-gray-700 rounded-b-kasa-sm"
+                    className="w-full px-4 py-2 text-left hover:bg-brand-bg text-sm text-gray-700 rounded-b-brand-sm"
                   >
                     Export Full History
                   </button>
@@ -542,40 +542,40 @@ export default function HotelDetailPage({
             <div className="flex gap-2">
               <button
                 onClick={() => setDateRange('7d')}
-                className={`px-4 py-2 min-h-kasa-button-md rounded-kasa font-medium transition-colors ${
+                className={`px-4 py-2 min-h-brand-button-md rounded-brand font-medium transition-colors ${
                   dateRange === '7d'
-                    ? 'bg-kasa-blue-300 text-white'
-                    : 'bg-kasa-neutral-light text-gray-700 hover:bg-kasa-neutral-medium'
+                    ? 'bg-brand-primary text-white'
+                    : 'bg-brand-border text-gray-700 hover:bg-brand-border-medium'
                 }`}
               >
                 Last 7 Days
               </button>
               <button
                 onClick={() => setDateRange('30d')}
-                className={`px-4 py-2 min-h-kasa-button-md rounded-kasa font-medium transition-colors ${
+                className={`px-4 py-2 min-h-brand-button-md rounded-brand font-medium transition-colors ${
                   dateRange === '30d'
-                    ? 'bg-kasa-blue-300 text-white'
-                    : 'bg-kasa-neutral-light text-gray-700 hover:bg-kasa-neutral-medium'
+                    ? 'bg-brand-primary text-white'
+                    : 'bg-brand-border text-gray-700 hover:bg-brand-border-medium'
                 }`}
               >
                 Last 30 Days
               </button>
               <button
                 onClick={() => setDateRange('90d')}
-                className={`px-4 py-2 min-h-kasa-button-md rounded-kasa font-medium transition-colors ${
+                className={`px-4 py-2 min-h-brand-button-md rounded-brand font-medium transition-colors ${
                   dateRange === '90d'
-                    ? 'bg-kasa-blue-300 text-white'
-                    : 'bg-kasa-neutral-light text-gray-700 hover:bg-kasa-neutral-medium'
+                    ? 'bg-brand-primary text-white'
+                    : 'bg-brand-border text-gray-700 hover:bg-brand-border-medium'
                 }`}
               >
                 Last 90 Days
               </button>
               <button
                 onClick={() => setDateRange('all')}
-                className={`px-4 py-2 min-h-kasa-button-md rounded-kasa font-medium transition-colors ${
+                className={`px-4 py-2 min-h-brand-button-md rounded-brand font-medium transition-colors ${
                   dateRange === 'all'
-                    ? 'bg-kasa-blue-300 text-white'
-                    : 'bg-kasa-neutral-light text-gray-700 hover:bg-kasa-neutral-medium'
+                    ? 'bg-brand-primary text-white'
+                    : 'bg-brand-border text-gray-700 hover:bg-brand-border-medium'
                 }`}
               >
                 All Time
@@ -583,8 +583,8 @@ export default function HotelDetailPage({
             </div>
 
             {/* Line Chart */}
-            <div className="bg-white rounded-kasa shadow-sm border border-kasa-neutral-light p-6">
-              <h2 className="text-xl font-bold text-kasa-black-500 mb-4">Score Trends</h2>
+            <div className="bg-white rounded-brand shadow-sm border border-brand-border p-6">
+              <h2 className="text-xl font-bold text-brand-dark mb-4">Score Trends</h2>
               <ResponsiveContainer width="100%" height={400}>
                 <LineChart
                   data={transformToChartData(
@@ -657,13 +657,13 @@ export default function HotelDetailPage({
             </div>
 
             {/* Snapshots Table */}
-            <div className="bg-white rounded-kasa shadow-sm border border-kasa-neutral-light overflow-hidden">
-              <div className="px-6 py-4 border-b border-kasa-neutral-light">
-                <h2 className="text-xl font-bold text-kasa-black-500">Historical Snapshots</h2>
+            <div className="bg-white rounded-brand shadow-sm border border-brand-border overflow-hidden">
+              <div className="px-6 py-4 border-b border-brand-border">
+                <h2 className="text-xl font-bold text-brand-dark">Historical Snapshots</h2>
               </div>
               <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-kasa-neutral-light">
-                  <thead className="bg-kasa-black-500">
+                <table className="min-w-full divide-y divide-brand-border">
+                  <thead className="bg-brand-dark">
                     <tr>
                       <th
                         className="px-4 py-3 text-left text-xs font-bold text-gray-100 uppercase cursor-pointer hover:bg-[#0a1a3d] select-none"
@@ -712,7 +712,7 @@ export default function HotelDetailPage({
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="bg-white divide-y divide-kasa-neutral-light">
+                  <tbody className="bg-white divide-y divide-brand-border">
                     {getSortedSnapshots(
                       allSnapshots.filter(s => {
                         const dateFilter = getDateFilter(dateRange);
@@ -720,8 +720,8 @@ export default function HotelDetailPage({
                         return new Date(s.fetched_at) >= dateFilter;
                       })
                     ).map((snapshot) => (
-                        <tr key={snapshot.id} className="hover:bg-kasa-neutral-warm">
-                          <td className="px-4 py-3 text-sm text-kasa-black-500">
+                        <tr key={snapshot.id} className="hover:bg-brand-bg">
+                          <td className="px-4 py-3 text-sm text-brand-dark">
                             {new Date(snapshot.fetched_at).toLocaleString()}
                           </td>
                           <td className="px-4 py-3 text-sm text-center">

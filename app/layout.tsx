@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Kasa Reputation Dashboard",
+  title: "Hotel Reputation Dashboard",
   description: "Hotel reputation aggregator across Google, TripAdvisor, Expedia, and Booking.com",
 };
 

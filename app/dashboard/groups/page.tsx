@@ -204,25 +204,25 @@ export default function GroupsPage() {
   }, [groups, searchQuery]);
 
   return (
-    <div className="min-h-screen bg-kasa-neutral-warm">
+    <div className="min-h-screen bg-brand-bg">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b border-kasa-neutral-light">
+      <header className="bg-white shadow-sm border-b border-brand-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-6">
-              <h1 className="text-2xl font-bold text-kasa-black-500">
-                Kasa Reputation Dashboard
+              <h1 className="text-2xl font-bold text-brand-dark">
+                Hotel Reputation Dashboard
               </h1>
               <nav className="flex gap-4">
                 <Link
                   href="/dashboard"
-                  className="text-kasa-neutral-dark hover:text-kasa-black-500 font-medium"
+                  className="text-brand-muted hover:text-brand-dark font-medium"
                 >
                   Hotels
                 </Link>
                 <Link
                   href="/dashboard/groups"
-                  className="text-kasa-blue-300 font-medium border-b-2 border-kasa-blue-300"
+                  className="text-brand-primary font-medium border-b-2 border-brand-primary"
                 >
                   Groups
                 </Link>
@@ -241,7 +241,7 @@ export default function GroupsPage() {
         {/* Page Header */}
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h2 className="text-xl font-semibold text-kasa-black-500">
+            <h2 className="text-xl font-semibold text-brand-dark">
               Hotel Groups
             </h2>
             <p className="text-sm text-gray-700 mt-1">
@@ -250,7 +250,7 @@ export default function GroupsPage() {
           </div>
           <button
             onClick={() => setShowCreateModal(true)}
-            className="px-4 py-2 min-h-kasa-button-md bg-kasa-blue-300 text-white rounded-kasa hover:bg-[#144a70] transition-colors font-medium focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)]"
+            className="px-4 py-2 min-h-brand-button-md bg-brand-primary text-white rounded-brand hover:bg-[#144a70] transition-colors font-medium focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)]"
           >
             Create Group
           </button>
@@ -271,7 +271,7 @@ export default function GroupsPage() {
                 placeholder="Search groups or hotels..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="block w-full pl-10 pr-3 py-2 border border-kasa-neutral-medium rounded-kasa-sm text-sm placeholder-gray-500 focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] focus:border-kasa-blue-300 transition-colors"
+                className="block w-full pl-10 pr-3 py-2 border border-brand-border-medium rounded-brand-sm text-sm placeholder-gray-500 focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] focus:border-brand-primary transition-colors"
               />
               {searchQuery && (
                 <button
@@ -295,15 +295,15 @@ export default function GroupsPage() {
         {/* Loading State */}
         {isLoading && (
           <div className="flex items-center justify-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-kasa-blue-300"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-primary"></div>
           </div>
         )}
 
         {/* Empty State */}
         {!isLoading && groups.length === 0 && (
-          <div className="bg-white rounded-kasa shadow-sm border border-kasa-neutral-light p-12 text-center">
+          <div className="bg-white rounded-brand shadow-sm border border-brand-border p-12 text-center">
             <svg
-              className="w-16 h-16 mx-auto mb-4 text-kasa-neutral-medium"
+              className="w-16 h-16 mx-auto mb-4 text-brand-border-medium"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -315,7 +315,7 @@ export default function GroupsPage() {
                 d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
               />
             </svg>
-            <h3 className="text-lg font-medium text-kasa-black-500 mb-2">
+            <h3 className="text-lg font-medium text-brand-dark mb-2">
               No groups yet
             </h3>
             <p className="text-gray-700 mb-6">
@@ -324,7 +324,7 @@ export default function GroupsPage() {
             </p>
             <button
               onClick={() => setShowCreateModal(true)}
-              className="px-6 py-2 min-h-kasa-button-md bg-kasa-blue-300 text-white rounded-kasa hover:bg-[#144a70] transition-colors font-medium focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)]"
+              className="px-6 py-2 min-h-brand-button-md bg-brand-primary text-white rounded-brand hover:bg-[#144a70] transition-colors font-medium focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)]"
             >
               Create Your First Group
             </button>
@@ -347,9 +347,9 @@ export default function GroupsPage() {
                 ))}
               </div>
             ) : (
-              <div className="bg-white rounded-kasa shadow-sm border border-kasa-neutral-light p-12 text-center">
+              <div className="bg-white rounded-brand shadow-sm border border-brand-border p-12 text-center">
                 <svg
-                  className="w-16 h-16 mx-auto mb-4 text-kasa-neutral-medium"
+                  className="w-16 h-16 mx-auto mb-4 text-brand-border-medium"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -361,7 +361,7 @@ export default function GroupsPage() {
                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                   />
                 </svg>
-                <h3 className="text-lg font-medium text-kasa-black-500 mb-2">
+                <h3 className="text-lg font-medium text-brand-dark mb-2">
                   No matching groups found
                 </h3>
                 <p className="text-gray-700 mb-4">
@@ -369,7 +369,7 @@ export default function GroupsPage() {
                 </p>
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="px-4 py-2 text-sm text-kasa-blue-300 hover:text-kasa-blue-200 font-medium"
+                  className="px-4 py-2 text-sm text-brand-primary hover:text-brand-primary-light font-medium"
                 >
                   Clear search
                 </button>

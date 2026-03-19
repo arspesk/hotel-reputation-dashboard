@@ -609,12 +609,12 @@ export default function GroupDetailPage({
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-kasa-neutral-warm">
-        <header className="bg-white shadow-sm border-b border-kasa-neutral-light">
+      <div className="min-h-screen bg-brand-bg">
+        <header className="bg-white shadow-sm border-b border-brand-border">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <Link
               href="/dashboard/groups"
-              className="inline-flex items-center text-kasa-blue-300 hover:text-[#144a70] font-medium transition-colors"
+              className="inline-flex items-center text-brand-primary hover:text-[#144a70] font-medium transition-colors"
             >
               <svg
                 className="w-5 h-5 mr-2"
@@ -635,7 +635,7 @@ export default function GroupDetailPage({
         </header>
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex items-center justify-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-kasa-blue-300"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-primary"></div>
           </div>
         </main>
       </div>
@@ -643,15 +643,15 @@ export default function GroupDetailPage({
   }
 
   return (
-    <div className="min-h-screen bg-kasa-neutral-warm">
+    <div className="min-h-screen bg-brand-bg">
       {/* Header */}
-      <header className="bg-white border-b border-kasa-neutral-light sticky top-0 z-10">
+      <header className="bg-white border-b border-brand-border sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex justify-between items-center">
             {/* Back button */}
             <Link
               href="/dashboard/groups"
-              className="text-kasa-blue-300 hover:text-[#144a70] flex items-center gap-2"
+              className="text-brand-primary hover:text-[#144a70] flex items-center gap-2"
             >
               <svg
                 className="w-5 h-5"
@@ -675,7 +675,7 @@ export default function GroupDetailPage({
               <button
                 onClick={handleRefreshAll}
                 disabled={isRefreshing || hotels.length === 0}
-                className="inline-flex items-center px-4 py-2 bg-kasa-blue-300 text-white rounded-kasa font-medium hover:bg-[#144a70] focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-h-kasa-button-md"
+                className="inline-flex items-center px-4 py-2 bg-brand-primary text-white rounded-brand font-medium hover:bg-[#144a70] focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-h-brand-button-md"
               >
                 {isRefreshing ? (
                   <>
@@ -695,7 +695,7 @@ export default function GroupDetailPage({
                 <button
                   onClick={() => setShowExportMenu(!showExportMenu)}
                   disabled={hotels.length === 0}
-                  className="inline-flex items-center px-4 py-2 border border-kasa-blue-300 text-kasa-blue-300 rounded-kasa font-medium hover:bg-kasa-neutral-warm focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-h-kasa-button-md"
+                  className="inline-flex items-center px-4 py-2 border border-brand-primary text-brand-primary rounded-brand font-medium hover:bg-brand-bg focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-h-brand-button-md"
                 >
                   <svg
                     className="w-4 h-4 mr-2"
@@ -728,12 +728,12 @@ export default function GroupDetailPage({
 
                 {/* Dropdown Menu */}
                 {showExportMenu && (
-                  <div className="absolute right-0 mt-2 w-64 bg-white rounded-kasa shadow-lg border border-kasa-neutral-light z-20">
+                  <div className="absolute right-0 mt-2 w-64 bg-white rounded-brand shadow-lg border border-brand-border z-20">
                     <button
                       onClick={handleExportCurrent}
-                      className="w-full text-left px-4 py-3 hover:bg-kasa-neutral-warm transition-colors border-b border-kasa-neutral-light"
+                      className="w-full text-left px-4 py-3 hover:bg-brand-bg transition-colors border-b border-brand-border"
                     >
-                      <div className="font-medium text-kasa-black-500">
+                      <div className="font-medium text-brand-dark">
                         Export Current Snapshot
                       </div>
                       <div className="text-xs text-gray-600 mt-1">
@@ -743,9 +743,9 @@ export default function GroupDetailPage({
                     <button
                       onClick={handleExportHistory}
                       disabled={allSnapshots.length === 0}
-                      className="w-full text-left px-4 py-3 hover:bg-kasa-neutral-warm transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full text-left px-4 py-3 hover:bg-brand-bg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      <div className="font-medium text-kasa-black-500">
+                      <div className="font-medium text-brand-dark">
                         Export Historical Data
                       </div>
                       <div className="text-xs text-gray-600 mt-1">
@@ -764,7 +764,7 @@ export default function GroupDetailPage({
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         {/* Group Title */}
         <div className="mb-6">
-          <h1 className="text-2xl font-bold text-kasa-black-500">
+          <h1 className="text-2xl font-bold text-brand-dark">
             {groupData?.name}
           </h1>
           <p className="text-sm text-gray-600 mt-1">
@@ -782,40 +782,40 @@ export default function GroupDetailPage({
             <div className="flex gap-2">
               <button
                 onClick={() => setDateRange('7d')}
-                className={`px-4 py-2 min-h-kasa-button-md rounded-kasa font-medium transition-colors ${
+                className={`px-4 py-2 min-h-brand-button-md rounded-brand font-medium transition-colors ${
                   dateRange === '7d'
-                    ? 'bg-kasa-blue-300 text-white'
-                    : 'bg-kasa-neutral-light text-gray-700 hover:bg-kasa-neutral-medium'
+                    ? 'bg-brand-primary text-white'
+                    : 'bg-brand-border text-gray-700 hover:bg-brand-border-medium'
                 }`}
               >
                 Last 7 Days
               </button>
               <button
                 onClick={() => setDateRange('30d')}
-                className={`px-4 py-2 min-h-kasa-button-md rounded-kasa font-medium transition-colors ${
+                className={`px-4 py-2 min-h-brand-button-md rounded-brand font-medium transition-colors ${
                   dateRange === '30d'
-                    ? 'bg-kasa-blue-300 text-white'
-                    : 'bg-kasa-neutral-light text-gray-700 hover:bg-kasa-neutral-medium'
+                    ? 'bg-brand-primary text-white'
+                    : 'bg-brand-border text-gray-700 hover:bg-brand-border-medium'
                 }`}
               >
                 Last 30 Days
               </button>
               <button
                 onClick={() => setDateRange('90d')}
-                className={`px-4 py-2 min-h-kasa-button-md rounded-kasa font-medium transition-colors ${
+                className={`px-4 py-2 min-h-brand-button-md rounded-brand font-medium transition-colors ${
                   dateRange === '90d'
-                    ? 'bg-kasa-blue-300 text-white'
-                    : 'bg-kasa-neutral-light text-gray-700 hover:bg-kasa-neutral-medium'
+                    ? 'bg-brand-primary text-white'
+                    : 'bg-brand-border text-gray-700 hover:bg-brand-border-medium'
                 }`}
               >
                 Last 90 Days
               </button>
               <button
                 onClick={() => setDateRange('all')}
-                className={`px-4 py-2 min-h-kasa-button-md rounded-kasa font-medium transition-colors ${
+                className={`px-4 py-2 min-h-brand-button-md rounded-brand font-medium transition-colors ${
                   dateRange === 'all'
-                    ? 'bg-kasa-blue-300 text-white'
-                    : 'bg-kasa-neutral-light text-gray-700 hover:bg-kasa-neutral-medium'
+                    ? 'bg-brand-primary text-white'
+                    : 'bg-brand-border text-gray-700 hover:bg-brand-border-medium'
                 }`}
               >
                 All Time
@@ -823,8 +823,8 @@ export default function GroupDetailPage({
             </div>
 
             {/* Historical Trends Chart */}
-            <div className="bg-white rounded-kasa-lg shadow-md border border-kasa-neutral-light p-6">
-              <h2 className="text-xl font-bold text-kasa-black-500 mb-4">
+            <div className="bg-white rounded-brand-lg shadow-md border border-brand-border p-6">
+              <h2 className="text-xl font-bold text-brand-dark mb-4">
                 Group Aggregate Performance Trends
               </h2>
 
@@ -872,16 +872,16 @@ export default function GroupDetailPage({
 
             {/* Historical Snapshots Table */}
             {filteredSnapshots.length > 0 && (
-              <div className="bg-white rounded-kasa shadow-md border border-kasa-neutral-light overflow-hidden">
-                <div className="px-6 py-4 border-b border-kasa-neutral-light">
-                  <h2 className="text-xl font-bold text-kasa-black-500">Historical Snapshots</h2>
+              <div className="bg-white rounded-brand shadow-md border border-brand-border overflow-hidden">
+                <div className="px-6 py-4 border-b border-brand-border">
+                  <h2 className="text-xl font-bold text-brand-dark">Historical Snapshots</h2>
                   <p className="text-sm text-gray-600 mt-1">
                     {filteredSnapshots.length} snapshot{filteredSnapshots.length !== 1 ? 's' : ''} across all hotels
                   </p>
                 </div>
                 <div className="overflow-x-auto">
-                  <table className="min-w-full divide-y divide-kasa-neutral-light">
-                    <thead className="bg-kasa-black-500">
+                  <table className="min-w-full divide-y divide-brand-border">
+                    <thead className="bg-brand-dark">
                       <tr>
                         <th
                           className="px-4 py-3 text-left text-xs font-bold text-gray-100 uppercase cursor-pointer hover:bg-[#0a1a3d] select-none"
@@ -939,17 +939,17 @@ export default function GroupDetailPage({
                         </th>
                       </tr>
                     </thead>
-                    <tbody className="bg-white divide-y divide-kasa-neutral-light">
+                    <tbody className="bg-white divide-y divide-brand-border">
                       {getSortedSnapshots(
                         filteredSnapshots as Array<ReviewSnapshot & { hotel_id: string }>
                       ).map((snapshot) => {
                         const hotel = hotels.find((h) => h.id === snapshot.hotel_id);
                         return (
-                          <tr key={snapshot.id} className="hover:bg-kasa-neutral-warm">
-                            <td className="px-4 py-3 text-sm text-kasa-black-500">
+                          <tr key={snapshot.id} className="hover:bg-brand-bg">
+                            <td className="px-4 py-3 text-sm text-brand-dark">
                               {new Date(snapshot.fetched_at).toLocaleString()}
                             </td>
-                            <td className="px-4 py-3 text-sm text-kasa-black-500">
+                            <td className="px-4 py-3 text-sm text-brand-dark">
                               {hotel?.name || 'Unknown Hotel'}
                             </td>
                             <td className="px-4 py-3 text-sm text-center">
@@ -990,7 +990,7 @@ export default function GroupDetailPage({
 
         {/* Empty State - No Historical Data Yet */}
         {allSnapshots.length === 0 && !isLoading && (
-          <div className="bg-white rounded-kasa-lg shadow-md border border-kasa-neutral-light p-12 text-center">
+          <div className="bg-white rounded-brand-lg shadow-md border border-brand-border p-12 text-center">
             <div className="text-gray-400 mb-4">
               <svg
                 className="w-16 h-16 mx-auto"
@@ -1015,7 +1015,7 @@ export default function GroupDetailPage({
             <button
               onClick={handleRefreshAll}
               disabled={hotels.length === 0}
-              className="inline-flex items-center px-6 py-3 bg-kasa-blue-300 text-white rounded-kasa font-medium hover:bg-[#144a70] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-brand-primary text-white rounded-brand font-medium hover:bg-[#144a70] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               <ArrowPathIcon className="w-5 h-5 mr-2" />
               Refresh All Hotels
@@ -1027,15 +1027,15 @@ export default function GroupDetailPage({
       {/* Refresh Progress Overlay */}
       {isRefreshing && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
-          <div className="bg-white rounded-kasa-lg p-8 max-w-md w-full mx-4 shadow-2xl">
-            <h3 className="text-xl font-bold text-kasa-black-500 mb-4">
+          <div className="bg-white rounded-brand-lg p-8 max-w-md w-full mx-4 shadow-2xl">
+            <h3 className="text-xl font-bold text-brand-dark mb-4">
               Refreshing Group Reviews
             </h3>
 
             {/* Progress Bar */}
             <div className="w-full bg-gray-200 rounded-full h-4 mb-4 overflow-hidden">
               <div
-                className="bg-kasa-blue-300 h-4 rounded-full transition-all duration-300 ease-out"
+                className="bg-brand-primary h-4 rounded-full transition-all duration-300 ease-out"
                 style={{
                   width: `${(refreshProgress.current / refreshProgress.total) * 100}%`,
                 }}

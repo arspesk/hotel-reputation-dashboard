@@ -1,4 +1,4 @@
-# Kasa Reputation Dashboard
+# Hotel Reputation Dashboard
 
 Multi-tenant hotel reputation platform aggregating reviews from Google Maps, TripAdvisor, Booking.com, and Expedia into a unified 0-10 scoring system with historical tracking.
 
@@ -9,7 +9,7 @@ Multi-tenant hotel reputation platform aggregating reviews from Google Maps, Tri
 - Historical trend charts with Recharts
 - Hotel grouping for portfolio tracking
 - CSV import/export with date filtering
-- Kasa.com brand design system
+- Clean, professional design system
 - Multi-tenant with Supabase RLS
 
 ## Tech Stack
@@ -27,7 +27,7 @@ Multi-tenant hotel reputation platform aggregating reviews from Google Maps, Tri
 
 Login with test account to explore a pre-populated portfolio:
 - **Email:** test@test.com
-- **Password:** Kasa23!
+- **Password:** Test123!
 
 This account includes 234 hotels ready for review fetching.
 

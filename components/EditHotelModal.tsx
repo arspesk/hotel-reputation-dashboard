@@ -53,11 +53,11 @@ export default function EditHotelModal({
 
       {/* Modal Content */}
       <div
-        className="relative bg-white rounded-kasa shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto"
+        className="relative bg-white rounded-brand shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-6 bg-kasa-black-500">
+        <div className="flex items-center justify-between p-6 bg-brand-dark">
           <h2 className="text-2xl font-bold text-gray-100">Edit Hotel</h2>
           <button
             onClick={onClose}

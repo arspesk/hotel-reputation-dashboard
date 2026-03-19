@@ -1,6 +1,6 @@
 -- =============================================
 -- Migration: 001_initial_schema.sql
--- Description: Create initial database schema for Kasa Reputation Dashboard
+-- Description: Create initial database schema for Hotel Reputation Dashboard
 -- Author: Claude Code
 -- Date: 2026-02-05
 -- =============================================

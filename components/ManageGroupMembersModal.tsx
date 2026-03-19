@@ -181,11 +181,11 @@ export default function ManageGroupMembersModal({
 
       {/* Modal Content */}
       <div
-        className="relative bg-white rounded-kasa shadow-xl max-w-2xl w-full max-h-[90vh] flex flex-col"
+        className="relative bg-white rounded-brand shadow-xl max-w-2xl w-full max-h-[90vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-6 bg-kasa-black-500">
+        <div className="flex items-center justify-between p-6 bg-brand-dark">
           <div>
             <h2 className="text-2xl font-bold text-gray-100">
               Manage Group Members
@@ -217,7 +217,7 @@ export default function ManageGroupMembersModal({
           <div className="flex-1 overflow-y-auto p-6">
             {isLoading ? (
               <div className="flex items-center justify-center py-12">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-kasa-blue-300"></div>
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-primary"></div>
               </div>
             ) : allHotels.length === 0 ? (
               <div className="text-center py-12">
@@ -234,7 +234,7 @@ export default function ManageGroupMembersModal({
                     d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
                   />
                 </svg>
-                <h3 className="text-lg font-medium text-kasa-black-500 mb-2">
+                <h3 className="text-lg font-medium text-brand-dark mb-2">
                   No hotels found
                 </h3>
                 <p className="text-gray-700">
@@ -252,21 +252,21 @@ export default function ManageGroupMembersModal({
                   return (
                     <label
                       key={hotel.id}
-                      className={`flex items-center gap-3 p-4 rounded-kasa-sm border-2 cursor-pointer transition-all ${
+                      className={`flex items-center gap-3 p-4 rounded-brand-sm border-2 cursor-pointer transition-all ${
                         isSelected
-                          ? "border-kasa-blue-300 bg-blue-50"
-                          : "border-kasa-neutral-light hover:border-kasa-neutral-medium bg-white"
+                          ? "border-brand-primary bg-blue-50"
+                          : "border-brand-border hover:border-brand-border-medium bg-white"
                       }`}
                     >
                       <input
                         type="checkbox"
                         checked={isSelected}
                         onChange={() => toggleHotel(hotel.id)}
-                        className="w-5 h-5 text-kasa-blue-300 border-kasa-neutral-medium rounded focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)]"
+                        className="w-5 h-5 text-brand-primary border-brand-border-medium rounded focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)]"
                         disabled={isSubmitting}
                       />
                       <div className="flex-1">
-                        <p className="font-medium text-kasa-black-500">
+                        <p className="font-medium text-brand-dark">
                           {hotel.name}
                         </p>
                         <p className="text-sm text-gray-700">{hotel.city}</p>
@@ -279,19 +279,19 @@ export default function ManageGroupMembersModal({
           </div>
 
           {/* Footer - Fixed at bottom */}
-          <div className="flex gap-3 justify-end p-6 border-t border-kasa-neutral-light bg-kasa-neutral-warm">
+          <div className="flex gap-3 justify-end p-6 border-t border-brand-border bg-brand-bg">
             <button
               type="button"
               onClick={onClose}
               disabled={isSubmitting}
-              className="min-h-kasa-button-md px-4 text-gray-700 hover:text-kasa-black-500 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+              className="min-h-brand-button-md px-4 text-gray-700 hover:text-brand-dark font-medium disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={isSubmitting || isLoading || !hasChanges}
-              className="min-h-kasa-button px-6 bg-kasa-blue-300 text-white rounded-kasa hover:bg-[#144a70] disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors font-medium"
+              className="min-h-brand-button px-6 bg-brand-primary text-white rounded-brand hover:bg-[#144a70] disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors font-medium"
             >
               {isSubmitting ? "Saving..." : "Save Changes"}
             </button>

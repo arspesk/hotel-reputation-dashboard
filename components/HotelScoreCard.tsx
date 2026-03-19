@@ -68,15 +68,15 @@ export default function HotelScoreCard({
 }: HotelScoreCardProps) {
 
   /**
-   * Color coding for scores (Kasa brand colors):
-   * - Kasa Success (8.0+): Excellent
-   * - Kasa Warning (6.0-7.9): Good
-   * - Kasa Error (<6.0): Needs improvement
+   * Color coding for scores (Brand colors):
+   * - Brand Success (8.0+): Excellent
+   * - Brand Warning (6.0-7.9): Good
+   * - Brand Error (<6.0): Needs improvement
    */
   const getScoreColor = (score: number): string => {
-    if (score >= 8.0) return "text-kasa-success bg-green-50 border-green-200";
-    if (score >= 6.0) return "text-kasa-warning bg-orange-50 border-orange-200";
-    return "text-kasa-error bg-red-50 border-red-200";
+    if (score >= 8.0) return "text-brand-success bg-green-50 border-green-200";
+    if (score >= 6.0) return "text-brand-warning bg-orange-50 border-orange-200";
+    return "text-brand-error bg-red-50 border-red-200";
   };
 
   /**
@@ -197,7 +197,7 @@ export default function HotelScoreCard({
   ];
 
   return (
-    <div className="bg-white rounded-kasa-lg shadow-md border border-kasa-neutral-light p-6">
+    <div className="bg-white rounded-brand-lg shadow-md border border-brand-border p-6">
       {/* Header Section */}
       <div className="flex items-start mb-6">
         <div className="flex items-center gap-4">
@@ -207,7 +207,7 @@ export default function HotelScoreCard({
             size="lg"
           />
           <div>
-            <h2 className="text-2xl font-bold text-kasa-black-500">{hotel.name}</h2>
+            <h2 className="text-2xl font-bold text-brand-dark">{hotel.name}</h2>
             <p className="text-gray-700 mt-1">{hotel.city}</p>
           </div>
         </div>
@@ -225,7 +225,7 @@ export default function HotelScoreCard({
             <div>
               <p className="text-sm text-gray-700 mb-1">Overall Score</p>
               <div
-                className={`inline-flex items-center px-4 py-2 rounded-kasa border-2 font-bold text-3xl ${getScoreColor(
+                className={`inline-flex items-center px-4 py-2 rounded-brand border-2 font-bold text-3xl ${getScoreColor(
                   weightedScore
                 )}`}
               >
@@ -258,16 +258,16 @@ export default function HotelScoreCard({
             return (
               <div
                 key={key}
-                className={`border rounded-kasa-lg p-4 ${
+                className={`border rounded-brand-lg p-4 ${
                   hasData
-                    ? "bg-white border-kasa-neutral-light"
-                    : "bg-kasa-neutral-warm border-kasa-neutral-light opacity-60"
+                    ? "bg-white border-brand-border"
+                    : "bg-brand-bg border-brand-border opacity-60"
                 }`}
               >
                 {/* Platform Icon and Name */}
                 <div className="flex items-center gap-2 mb-3">
                   {icon}
-                  <h3 className="font-semibold text-kasa-black-500">{name}</h3>
+                  <h3 className="font-semibold text-brand-dark">{name}</h3>
                 </div>
 
                 {/* Rating, Stars, Original Rating, and Review Count */}
@@ -276,10 +276,10 @@ export default function HotelScoreCard({
                     <div
                       className={`text-2xl font-bold mb-1 ${
                         data.rating >= 8
-                          ? "text-kasa-success"
+                          ? "text-brand-success"
                           : data.rating >= 6
-                          ? "text-kasa-warning"
-                          : "text-kasa-error"
+                          ? "text-brand-warning"
+                          : "text-brand-error"
                       }`}
                     >
                       {data.rating.toFixed(1)}/10

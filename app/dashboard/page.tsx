@@ -440,7 +440,7 @@ export default function DashboardPage() {
 
     return (
       <th
-        className={`px-4 py-3 text-xs font-bold text-gray-100 uppercase tracking-wider cursor-pointer hover:bg-[#0a1a3d] transition-colors sticky top-0 bg-kasa-black-500 z-10 ${className}`}
+        className={`px-4 py-3 text-xs font-bold text-gray-100 uppercase tracking-wider cursor-pointer hover:bg-[#0a1a3d] transition-colors sticky top-0 bg-brand-dark z-10 ${className}`}
         onClick={() => handleSort(column)}
       >
         <div className="flex items-center gap-1">
@@ -461,31 +461,31 @@ export default function DashboardPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-kasa-neutral-warm">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-kasa-blue-300"></div>
+      <div className="min-h-screen flex items-center justify-center bg-brand-bg">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-primary"></div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-kasa-neutral-warm">
-      <header className="bg-white shadow-sm border-b border-kasa-neutral-light">
+    <div className="min-h-screen bg-brand-bg">
+      <header className="bg-white shadow-sm border-b border-brand-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-6">
-              <h1 className="text-2xl font-bold text-kasa-black-500">
-                Kasa Reputation Dashboard
+              <h1 className="text-2xl font-bold text-brand-dark">
+                Hotel Reputation Dashboard
               </h1>
               <nav className="flex gap-4">
                 <Link
                   href="/dashboard"
-                  className="text-kasa-blue-300 font-medium border-b-2 border-kasa-blue-300"
+                  className="text-brand-primary font-medium border-b-2 border-brand-primary"
                 >
                   Hotels
                 </Link>
                 <Link
                   href="/dashboard/groups"
-                  className="text-kasa-neutral-dark hover:text-kasa-black-500 font-medium"
+                  className="text-brand-muted hover:text-brand-dark font-medium"
                 >
                   Groups
                 </Link>
@@ -501,11 +501,11 @@ export default function DashboardPage() {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-6 flex justify-between items-center">
-          <h2 className="text-xl font-semibold text-kasa-black-500">Hotels</h2>
+          <h2 className="text-xl font-semibold text-brand-dark">Hotels</h2>
           <div className="flex gap-3">
             <button
               onClick={() => setIsImportModalOpen(true)}
-              className="inline-flex items-center px-4 py-2 border border-kasa-blue-300 text-kasa-blue-300 rounded-kasa font-medium hover:bg-kasa-neutral-warm focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] transition-colors min-h-kasa-button-md"
+              className="inline-flex items-center px-4 py-2 border border-brand-primary text-brand-primary rounded-brand font-medium hover:bg-brand-bg focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] transition-colors min-h-brand-button-md"
             >
               <svg
                 className="-ml-1 mr-2 h-5 w-5"
@@ -524,7 +524,7 @@ export default function DashboardPage() {
             <button
               onClick={handleExportCSV}
               disabled={hotels.length === 0}
-              className="inline-flex items-center px-4 py-2 border border-kasa-blue-300 text-kasa-blue-300 rounded-kasa font-medium hover:bg-kasa-neutral-warm focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-h-kasa-button-md"
+              className="inline-flex items-center px-4 py-2 border border-brand-primary text-brand-primary rounded-brand font-medium hover:bg-brand-bg focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-h-brand-button-md"
             >
               <svg
                 className="-ml-1 mr-2 h-5 w-5"
@@ -542,7 +542,7 @@ export default function DashboardPage() {
             </button>
             <button
               onClick={() => setIsModalOpen(true)}
-              className="inline-flex items-center px-4 py-2 bg-kasa-blue-300 text-white rounded-kasa font-medium hover:bg-[#144a70] focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] transition-colors min-h-kasa-button-md"
+              className="inline-flex items-center px-4 py-2 bg-brand-primary text-white rounded-brand font-medium hover:bg-[#144a70] focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] transition-colors min-h-brand-button-md"
             >
               <svg
                 className="-ml-1 mr-2 h-5 w-5"
@@ -576,7 +576,7 @@ export default function DashboardPage() {
                 placeholder="Search hotels by name or city..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="block w-full pl-10 pr-3 py-2 border border-kasa-neutral-medium rounded-kasa-sm text-sm placeholder-gray-500 focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] focus:border-kasa-blue-300 transition-colors"
+                className="block w-full pl-10 pr-3 py-2 border border-brand-border-medium rounded-brand-sm text-sm placeholder-gray-500 focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] focus:border-brand-primary transition-colors"
               />
               {searchQuery && (
                 <button
@@ -592,11 +592,11 @@ export default function DashboardPage() {
 
             {/* Filter Dropdown */}
             <div className="flex items-center gap-2">
-              <label className="text-sm font-medium text-kasa-black-500">Show:</label>
+              <label className="text-sm font-medium text-brand-dark">Show:</label>
               <select
                 value={filter}
                 onChange={(e) => setFilter(e.target.value as FilterType)}
-                className="inline-flex px-3 py-2 border border-kasa-neutral-medium rounded-kasa-sm text-sm focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] focus:border-kasa-blue-300 transition-colors h-kasa-button-md"
+                className="inline-flex px-3 py-2 border border-brand-border-medium rounded-brand-sm text-sm focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] focus:border-brand-primary transition-colors h-brand-button-md"
               >
                 <option value="all">All Hotels</option>
                 <option value="with_data">With Data</option>
@@ -614,26 +614,26 @@ export default function DashboardPage() {
 
         {/* Bulk Actions Bar */}
         {selectedHotels.size > 0 && (
-          <div className="mb-4 bg-blue-50 border border-kasa-blue-200 rounded-kasa p-3 flex items-center justify-between">
-            <span className="text-sm font-medium text-kasa-blue-300">
+          <div className="mb-4 bg-blue-50 border border-brand-primary-light rounded-brand p-3 flex items-center justify-between">
+            <span className="text-sm font-medium text-brand-primary">
               {selectedHotels.size} selected
             </span>
             <div className="flex gap-2">
               <button
                 onClick={handleBulkRefresh}
-                className="px-3 py-1.5 text-sm bg-white text-kasa-blue-300 border border-kasa-blue-200 rounded-kasa-sm hover:bg-kasa-neutral-warm transition-colors font-medium"
+                className="px-3 py-1.5 text-sm bg-white text-brand-primary border border-brand-primary-light rounded-brand-sm hover:bg-brand-bg transition-colors font-medium"
               >
                 Refresh All
               </button>
               <button
                 onClick={handleBulkDelete}
-                className="px-3 py-1.5 text-sm bg-white text-kasa-error border border-red-300 rounded-kasa-sm hover:bg-red-100 transition-colors font-medium"
+                className="px-3 py-1.5 text-sm bg-white text-brand-error border border-red-300 rounded-brand-sm hover:bg-red-100 transition-colors font-medium"
               >
                 Delete
               </button>
               <button
                 onClick={() => setSelectedHotels(new Set())}
-                className="px-3 py-1.5 text-sm text-kasa-neutral-dark hover:text-kasa-black-500"
+                className="px-3 py-1.5 text-sm text-brand-muted hover:text-brand-dark"
               >
                 Cancel
               </button>
@@ -641,7 +641,7 @@ export default function DashboardPage() {
           </div>
         )}
 
-        <div className="bg-white rounded-kasa-lg shadow overflow-hidden">
+        <div className="bg-white rounded-brand-lg shadow overflow-hidden">
           {hotels.length === 0 ? (
             <div className="p-12 text-center">
               <svg
@@ -666,7 +666,7 @@ export default function DashboardPage() {
               <div className="mt-6">
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="inline-flex items-center px-4 py-2 bg-kasa-blue-300 text-white rounded-kasa font-medium hover:bg-[#144a70] focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] transition-colors min-h-kasa-button-md"
+                  className="inline-flex items-center px-4 py-2 bg-brand-primary text-white rounded-brand font-medium hover:bg-[#144a70] focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] transition-colors min-h-brand-button-md"
                 >
                   <svg
                     className="-ml-1 mr-2 h-5 w-5"
@@ -686,31 +686,31 @@ export default function DashboardPage() {
             </div>
           ) : (
             <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-kasa-neutral-medium">
-                <thead className="bg-kasa-black-500">
+              <table className="min-w-full divide-y divide-brand-border-medium">
+                <thead className="bg-brand-dark">
                   <tr>
-                    <th className="px-4 py-3 sticky top-0 bg-kasa-black-500 z-10">
+                    <th className="px-4 py-3 sticky top-0 bg-brand-dark z-10">
                       <input
                         type="checkbox"
                         checked={selectedHotels.size === hotels.length && hotels.length > 0}
                         onChange={toggleSelectAll}
-                        className="h-4 w-4 text-kasa-blue-300 focus:ring-kasa-blue-300 border-gray-300 rounded bg-white"
+                        className="h-4 w-4 text-brand-primary focus:ring-brand-primary border-gray-300 rounded bg-white"
                       />
                     </th>
                     <SortableHeader column="name" label="Hotel" className="text-left" />
                     <SortableHeader column="city" label="City" className="text-left" />
-                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-100 uppercase tracking-wider sticky top-0 bg-kasa-black-500 z-10">
+                    <th className="px-4 py-3 text-left text-xs font-bold text-gray-100 uppercase tracking-wider sticky top-0 bg-brand-dark z-10">
                       Website
                     </th>
                     <SortableHeader column="score" label="Overall Score" className="text-center" />
                     <SortableHeader column="status" label="Status" className="text-center" />
                     <SortableHeader column="updated" label="Last Updated" className="text-center" />
-                    <th className="px-4 py-3 text-center text-xs font-bold text-gray-100 uppercase tracking-wider sticky top-0 bg-kasa-black-500 z-10">
+                    <th className="px-4 py-3 text-center text-xs font-bold text-gray-100 uppercase tracking-wider sticky top-0 bg-brand-dark z-10">
                       Actions
                     </th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-kasa-neutral-medium">
+                <tbody className="bg-white divide-y divide-brand-border-medium">
                   {sortedHotels.map((hotel, index) => {
                     const reviews = hotelReviews.get(hotel.id);
                     const platformCount = reviews?.platform_count ?? 0;
@@ -734,8 +734,8 @@ export default function DashboardPage() {
                     return (
                       <tr
                         key={hotel.id}
-                        className={`hover:bg-kasa-neutral-warm hover:shadow-sm transition-all ${
-                          index % 2 === 0 ? 'bg-white' : 'bg-kasa-neutral-warm/30'
+                        className={`hover:bg-brand-bg hover:shadow-sm transition-all ${
+                          index % 2 === 0 ? 'bg-white' : 'bg-brand-bg/30'
                         } ${!hasData ? 'opacity-60' : ''}`}
                       >
                         {/* Checkbox */}
@@ -744,7 +744,7 @@ export default function DashboardPage() {
                             type="checkbox"
                             checked={isSelected}
                             onChange={() => toggleSelectHotel(hotel.id)}
-                            className="h-4 w-4 text-kasa-blue-300 focus:ring-kasa-blue-300 border-kasa-neutral-medium rounded"
+                            className="h-4 w-4 text-brand-primary focus:ring-brand-primary border-brand-border-medium rounded"
                           />
                         </td>
 
@@ -758,7 +758,7 @@ export default function DashboardPage() {
                             />
                             <Link
                               href={`/dashboard/hotels/${hotel.id}`}
-                              className="text-sm font-medium text-kasa-black-500 hover:text-kasa-blue-300 transition-colors"
+                              className="text-sm font-medium text-brand-dark hover:text-brand-primary transition-colors"
                             >
                               {hotel.name}
                             </Link>
@@ -777,7 +777,7 @@ export default function DashboardPage() {
                               href={hotel.website_url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-sm text-kasa-blue-300 hover:text-kasa-blue-200 hover:underline truncate max-w-xs inline-block"
+                              className="text-sm text-brand-primary hover:text-brand-primary-light hover:underline truncate max-w-xs inline-block"
                               title={hotel.website_url}
                             >
                               {hotel.website_url.replace(/^https?:\/\/(www\.)?/, '').split('/')[0]}
@@ -791,12 +791,12 @@ export default function DashboardPage() {
                         <td className="px-4 py-4 whitespace-nowrap text-center">
                           {reviews?.weighted_score ? (
                             <div className="flex flex-col items-center">
-                              <span className={`inline-flex items-center px-3 py-1.5 rounded-kasa-sm text-base font-bold border-2 ${
+                              <span className={`inline-flex items-center px-3 py-1.5 rounded-brand-sm text-base font-bold border-2 ${
                                 reviews.weighted_score >= 8.0
-                                  ? "bg-green-50 text-kasa-success border-green-200"
+                                  ? "bg-green-50 text-brand-success border-green-200"
                                   : reviews.weighted_score >= 6.0
-                                  ? "bg-orange-50 text-kasa-warning border-orange-200"
-                                  : "bg-red-50 text-kasa-error border-red-200"
+                                  ? "bg-orange-50 text-brand-warning border-orange-200"
+                                  : "bg-red-50 text-brand-error border-red-200"
                               }`}>
                                 {reviews.weighted_score.toFixed(1)}
                               </span>
@@ -811,9 +811,9 @@ export default function DashboardPage() {
                           <div className="flex flex-col items-center gap-1">
                             <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold border ${
                               statusColor === 'green'
-                                ? 'bg-green-50 text-kasa-success border-green-200'
+                                ? 'bg-green-50 text-brand-success border-green-200'
                                 : statusColor === 'yellow'
-                                ? 'bg-orange-50 text-kasa-warning border-orange-200'
+                                ? 'bg-orange-50 text-brand-warning border-orange-200'
                                 : 'bg-gray-50 text-gray-700 border-gray-300'
                             }`}>
                               <span>{statusIcon}</span>
@@ -896,7 +896,7 @@ export default function DashboardPage() {
                             <button
                               onClick={() => handleRefreshHotel(hotel)}
                               disabled={refreshingHotelId === hotel.id}
-                              className="inline-flex items-center px-3 py-1.5 text-xs bg-kasa-blue-300 text-white rounded-kasa-sm hover:bg-[#144a70] transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-medium"
+                              className="inline-flex items-center px-3 py-1.5 text-xs bg-brand-primary text-white rounded-brand-sm hover:bg-[#144a70] transition-colors disabled:opacity-50 disabled:cursor-not-allowed font-medium"
                             >
                               {refreshingHotelId === hotel.id ? 'Fetching...' : 'Fetch Reviews'}
                             </button>

@@ -181,8 +181,8 @@ export default function EditHotelForm({
             setFormData((prev) => ({ ...prev, name: e.target.value }))
           }
           disabled={isLoading}
-          className={`w-full h-kasa-button-md px-4 border rounded-kasa-sm focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] disabled:bg-kasa-neutral-light disabled:cursor-not-allowed ${
-            errors.name ? "border-[#e23c00]" : "border-kasa-neutral-light"
+          className={`w-full h-brand-button-md px-4 border rounded-brand-sm focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] disabled:bg-brand-border disabled:cursor-not-allowed ${
+            errors.name ? "border-[#e23c00]" : "border-brand-border"
           }`}
           placeholder="Enter hotel name"
         />
@@ -207,8 +207,8 @@ export default function EditHotelForm({
             setFormData((prev) => ({ ...prev, city: e.target.value }))
           }
           disabled={isLoading}
-          className={`w-full h-kasa-button-md px-4 border rounded-kasa-sm focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] disabled:bg-kasa-neutral-light disabled:cursor-not-allowed ${
-            errors.city ? "border-[#e23c00]" : "border-kasa-neutral-light"
+          className={`w-full h-brand-button-md px-4 border rounded-brand-sm focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] disabled:bg-brand-border disabled:cursor-not-allowed ${
+            errors.city ? "border-[#e23c00]" : "border-brand-border"
           }`}
           placeholder="Enter city"
         />
@@ -233,8 +233,8 @@ export default function EditHotelForm({
             setFormData((prev) => ({ ...prev, website_url: e.target.value }))
           }
           disabled={isLoading}
-          className={`w-full h-kasa-button-md px-4 border rounded-kasa-sm focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] disabled:bg-kasa-neutral-light disabled:cursor-not-allowed ${
-            errors.website_url ? "border-[#e23c00]" : "border-kasa-neutral-light"
+          className={`w-full h-brand-button-md px-4 border rounded-brand-sm focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] disabled:bg-brand-border disabled:cursor-not-allowed ${
+            errors.website_url ? "border-[#e23c00]" : "border-brand-border"
           }`}
           placeholder="https://example.com"
         />
@@ -245,7 +245,7 @@ export default function EditHotelForm({
 
       {/* Submit Error */}
       {errors.submit && (
-        <div className="p-4 bg-red-50 border border-red-200 rounded-kasa-sm">
+        <div className="p-4 bg-red-50 border border-red-200 rounded-brand-sm">
           <p className="text-sm text-[#e23c00]">{errors.submit}</p>
         </div>
       )}
@@ -256,14 +256,14 @@ export default function EditHotelForm({
           type="button"
           onClick={onCancel}
           disabled={isLoading}
-          className="flex-1 min-h-kasa-button-md px-4 border border-kasa-neutral-medium rounded-kasa font-medium text-gray-800 bg-white hover:bg-kasa-neutral-warm focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          className="flex-1 min-h-brand-button-md px-4 border border-brand-border-medium rounded-brand font-medium text-gray-800 bg-white hover:bg-brand-bg focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
         >
           Cancel
         </button>
         <button
           type="submit"
           disabled={isLoading}
-          className="flex-1 min-h-kasa-button px-4 bg-kasa-blue-300 text-white rounded-kasa font-medium hover:bg-[#144a70] focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center"
+          className="flex-1 min-h-brand-button px-4 bg-brand-primary text-white rounded-brand font-medium hover:bg-[#144a70] focus:outline-none focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center"
         >
           {isLoading ? (
             <>

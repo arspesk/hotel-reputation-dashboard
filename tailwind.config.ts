@@ -11,31 +11,25 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        kasa: {
+        brand: {
           // Primary Blues
-          blue: {
-            300: '#195c8c',
-            200: '#3d779f',
-            100: '#6493b3',
-          },
+          primary: '#195c8c',
+          'primary-light': '#3d779f',
+          'primary-lighter': '#6493b3',
           // Neutrals
-          black: {
-            500: '#061332',
-          },
-          neutral: {
-            warm: '#faf9f6',
-            light: '#ebecef',
-            medium: '#e6e7ea',
-            dark: '#acb0ba',
-          },
-          // Accents
+          dark: '#061332',
+          bg: '#faf9f6',
+          border: '#ebecef',
+          'border-medium': '#e6e7ea',
+          muted: '#acb0ba',
+          // Status
           success: '#2eab6e',
           error: '#e23c00',
           warning: '#ff9520',
           // Decorative
-          dusk: '#ef786a',
-          sunshine: '#f8dab7',
-          overcast: '#3d8c8d',
+          'accent-warm': '#ef786a',
+          'accent-light': '#f8dab7',
+          'accent-cool': '#3d8c8d',
         },
       },
       fontFamily: {
@@ -43,14 +37,14 @@ export default {
         serif: ['Tiempos Headline', 'baskerville', 'palatino', 'georgia', 'serif'],
       },
       borderRadius: {
-        kasa: '12px',
-        'kasa-sm': '8px',
-        'kasa-lg': '16px',
+        brand: '12px',
+        'brand-sm': '8px',
+        'brand-lg': '16px',
       },
       spacing: {
-        'kasa-button': '3rem',
-        'kasa-button-md': '2.5rem',
-        'kasa-button-sm': '2rem',
+        'brand-button': '3rem',
+        'brand-button-md': '2.5rem',
+        'brand-button-sm': '2rem',
       },
     },
   },

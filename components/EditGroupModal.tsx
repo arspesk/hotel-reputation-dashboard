@@ -230,11 +230,11 @@ export default function EditGroupModal({
 
       {/* Modal Content */}
       <div
-        className="relative bg-white rounded-kasa shadow-xl max-w-2xl w-full max-h-[90vh] overflow-hidden"
+        className="relative bg-white rounded-brand shadow-xl max-w-2xl w-full max-h-[90vh] overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-6 bg-kasa-black-500">
+        <div className="flex items-center justify-between p-6 bg-brand-dark">
           <h2 className="text-2xl font-bold text-gray-100">Edit Group</h2>
           <button
             onClick={onClose}
@@ -271,7 +271,7 @@ export default function EditGroupModal({
                 id="groupName"
                 value={groupName}
                 onChange={(e) => setGroupName(e.target.value)}
-                className="w-full h-kasa-button-md px-4 border border-kasa-neutral-light rounded-kasa-sm focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] focus:border-kasa-blue-300 outline-none transition"
+                className="w-full h-brand-button-md px-4 border border-brand-border rounded-brand-sm focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] focus:border-brand-primary outline-none transition"
                 placeholder="e.g., Downtown Properties, Beachfront Hotels"
                 disabled={isSubmitting}
               />
@@ -293,14 +293,14 @@ export default function EditGroupModal({
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search hotels by name or city..."
-                  className="w-full h-kasa-button-md px-4 border border-kasa-neutral-light rounded-kasa-sm focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] focus:border-kasa-blue-300 outline-none transition"
+                  className="w-full h-brand-button-md px-4 border border-brand-border rounded-brand-sm focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] focus:border-brand-primary outline-none transition"
                 />
               </div>
 
               {/* Hotel List */}
               {isLoading ? (
                 <div className="flex items-center justify-center py-8">
-                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-kasa-blue-300"></div>
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-primary"></div>
                 </div>
               ) : filteredHotels.length === 0 ? (
                 <div className="text-center py-8 text-gray-700">
@@ -311,21 +311,21 @@ export default function EditGroupModal({
                   </p>
                 </div>
               ) : (
-                <div className="border border-kasa-neutral-light rounded-kasa-sm divide-y divide-kasa-neutral-light max-h-64 overflow-y-auto">
+                <div className="border border-brand-border rounded-brand-sm divide-y divide-brand-border max-h-64 overflow-y-auto">
                   {filteredHotels.map((hotel) => (
                     <label
                       key={hotel.id}
-                      className="flex items-center p-3 hover:bg-kasa-neutral-warm cursor-pointer transition-colors"
+                      className="flex items-center p-3 hover:bg-brand-bg cursor-pointer transition-colors"
                     >
                       <input
                         type="checkbox"
                         checked={selectedHotelIds.has(hotel.id)}
                         onChange={() => toggleHotel(hotel.id)}
-                        className="h-4 w-4 text-kasa-blue-300 focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] border-kasa-neutral-medium rounded"
+                        className="h-4 w-4 text-brand-primary focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)] border-brand-border-medium rounded"
                         disabled={isSubmitting}
                       />
                       <div className="ml-3 flex-1">
-                        <p className="text-sm font-medium text-kasa-black-500">
+                        <p className="text-sm font-medium text-brand-dark">
                           {hotel.name}
                         </p>
                         <p className="text-xs text-gray-700">{hotel.city}</p>
@@ -338,19 +338,19 @@ export default function EditGroupModal({
           </div>
 
           {/* Footer */}
-          <div className="flex gap-3 justify-end p-6 border-t border-kasa-neutral-light">
+          <div className="flex gap-3 justify-end p-6 border-t border-brand-border">
             <button
               type="button"
               onClick={onClose}
               disabled={isSubmitting}
-              className="min-h-kasa-button-md px-4 text-kasa-neutral-dark hover:text-kasa-black-500 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+              className="min-h-brand-button-md px-4 text-brand-muted hover:text-brand-dark font-medium disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={isSubmitting || !groupName.trim()}
-              className="min-h-kasa-button px-6 bg-kasa-blue-300 text-white rounded-kasa hover:bg-[#144a70] disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors font-medium"
+              className="min-h-brand-button px-6 bg-brand-primary text-white rounded-brand hover:bg-[#144a70] disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors font-medium"
             >
               {isSubmitting ? "Saving..." : "Save Changes"}
             </button>

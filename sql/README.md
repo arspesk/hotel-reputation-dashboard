@@ -1,6 +1,6 @@
 # Database Migrations
 
-SQL migrations for the Kasa Reputation Dashboard Supabase database.
+SQL migrations for the Hotel Reputation Dashboard Supabase database.
 
 ## Overview
 

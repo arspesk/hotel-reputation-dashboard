@@ -10,7 +10,7 @@ Hotel reputation dashboard that aggregates review ratings from 4 platforms (Goog
 
 ## Tech Stack
 
-- **Frontend:** Next.js 15 (App Router) + TypeScript + Tailwind CSS + Kasa brand styling
+- **Frontend:** Next.js 15 (App Router) + TypeScript + Tailwind CSS
 - **Backend:** Next.js API Routes (serverless)
 - **Database:** Supabase (PostgreSQL) with Row-Level Security (RLS)
 - **Auth:** Supabase Auth (email/password) + @supabase/auth-ui-react
@@ -131,31 +131,31 @@ Every review fetch creates a **new** `review_snapshots` entry (never updates exi
 
 Charts use Recharts library to visualize trends on hotel detail pages.
 
-## Kasa Brand Implementation
+## Brand Implementation
 
-The dashboard uses Kasa.com's official brand colors and design system:
+The dashboard uses a clean, professional design system:
 
 ### Brand Colors (in Tailwind config)
 ```
-kasa-blue-300: #195c8c    (primary buttons, links)
-kasa-success: #2eab6e      (scores ≥8.0)
-kasa-warning: #ff9520      (scores 6.0-7.9)
-kasa-error: #e23c00        (scores <6.0)
-kasa-black-500: #061332    (dark text)
-kasa-neutral-warm: #faf9f6 (page backgrounds)
+brand-primary: #195c8c    (primary buttons, links)
+brand-success: #2eab6e    (scores ≥8.0)
+brand-warning: #ff9520    (scores 6.0-7.9)
+brand-error: #e23c00      (scores <6.0)
+brand-dark: #061332       (dark text)
+brand-bg: #faf9f6         (page backgrounds)
 ```
 
 ### UI Patterns
-- **Border radius:** `rounded-kasa` (12px), `rounded-kasa-sm` (8px), `rounded-kasa-lg` (16px)
-- **Button heights:** `min-h-kasa-button` (3rem), `min-h-kasa-button-md` (2.5rem)
+- **Border radius:** `rounded-brand` (12px), `rounded-brand-sm` (8px), `rounded-brand-lg` (16px)
+- **Button heights:** `min-h-brand-button` (3rem), `min-h-brand-button-md` (2.5rem)
 - **Focus rings:** `focus:ring-4 focus:ring-offset-0 focus:ring-[rgba(6,19,50,0.2)]`
-- **Primary button:** `bg-kasa-blue-300 hover:bg-[#144a70]`
-- **Secondary button:** `border border-kasa-blue-300 text-kasa-blue-300 hover:bg-kasa-neutral-warm`
+- **Primary button:** `bg-brand-primary hover:bg-[#144a70]`
+- **Secondary button:** `border border-brand-primary text-brand-primary hover:bg-brand-bg`
 
 ### Score Color Coding
-- **Green (Excellent):** 8.0+ uses `kasa-success` (#2eab6e)
-- **Yellow (Good):** 6.0-7.9 uses `kasa-warning` (#ff9520)
-- **Red (Poor):** <6.0 uses `kasa-error` (#e23c00)
+- **Green (Excellent):** 8.0+ uses `brand-success` (#2eab6e)
+- **Yellow (Good):** 6.0-7.9 uses `brand-warning` (#ff9520)
+- **Red (Poor):** <6.0 uses `brand-error` (#e23c00)
 
 Applied consistently across HotelScoreCard, GroupCard, and all dashboard views.
 

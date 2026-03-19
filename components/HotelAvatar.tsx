@@ -44,7 +44,7 @@ export default function HotelAvatar({
 
   // Fallback to initials
   return (
-    <div className={`${container} rounded-full bg-blue-100 text-kasa-blue-300 flex items-center justify-center font-semibold ${text} flex-shrink-0 ${className}`}>
+    <div className={`${container} rounded-full bg-blue-100 text-brand-primary flex items-center justify-center font-semibold ${text} flex-shrink-0 ${className}`}>
       {initials}
     </div>
   );
