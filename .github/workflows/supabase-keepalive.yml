@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: Production
     steps:
-      - name: Ping Supabase
+      - name: Keep Supabase Active
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
@@ -20,15 +20,59 @@ jobs:
           node -e "
             const { createClient } = require('@supabase/supabase-js');
             const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
-            supabase.from('hotels').select('id').limit(1).then(result => {
-              console.log('Supabase ping result:', result);
-              if (result.error) {
-                console.error('Error:', result.error);
-                process.exit(1);
+
+            async function keepAlive() {
+              const timestamp = new Date().toISOString();
+              console.log('Starting keepalive at:', timestamp);
+
+              // Insert a keepalive record into review_snapshots with a dummy hotel_id
+              // This creates actual write activity to keep the database active
+              const { data: insertData, error: insertError } = await supabase
+                .from('review_snapshots')
+                .insert({
+                  hotel_id: '00000000-0000-0000-0000-000000000000',
+                  platform: 'google',
+                  rating: 0,
+                  original_rating: 0,
+                  review_count: 0
+                })
+                .select();
+
+              if (insertError) {
+                console.log('Insert error (expected if no dummy hotel):', insertError.message);
+                // Fallback: just do a count query which still creates activity
+                const { count, error: countError } = await supabase
+                  .from('hotels')
+                  .select('*', { count: 'exact', head: true });
+
+                if (countError) {
+                  console.error('Count error:', countError);
+                  process.exit(1);
+                }
+                console.log('Keepalive successful via count. Hotels in DB:', count);
+              } else {
+                console.log('Inserted keepalive record:', insertData);
+
+                // Clean up: delete the keepalive record we just created
+                if (insertData && insertData[0]) {
+                  const { error: deleteError } = await supabase
+                    .from('review_snapshots')
+                    .delete()
+                    .eq('id', insertData[0].id);
+
+                  if (deleteError) {
+                    console.error('Delete error:', deleteError);
+                  } else {
+                    console.log('Cleaned up keepalive record');
+                  }
+                }
               }
-              console.log('Supabase is active!');
-            }).catch(err => {
-              console.error('Failed to ping Supabase:', err);
+
+              console.log('Supabase keepalive completed successfully!');
+            }
+
+            keepAlive().catch(err => {
+              console.error('Keepalive failed:', err);
               process.exit(1);
             });
           "
